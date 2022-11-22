@@ -1,5 +1,6 @@
 module.exports = app => {
   const tutorials = require("../controllers/tutorial.controller.js");
+  const polls = require("../controllers/poll.controller.js");
 
   var router = require("express").Router();
 
@@ -23,6 +24,10 @@ module.exports = app => {
 
   // Delete all Tutorials
   router.delete("/", tutorials.deleteAll);
+
+
+  // polls
+  router.post("/polls", polls.create);
 
   app.use("/api/tutorials", router);
 };
